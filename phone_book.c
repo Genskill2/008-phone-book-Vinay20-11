@@ -127,7 +127,6 @@ void print_usage(char *message, char *progname) {
   printf("    Deletes the entry for the name in the database.\n    Prints 'no match' if there's no such name.\n");
 }
 
-entry *
 create_entry_node(char *name, char *phone) {
   entry *ret;
   ret = malloc(sizeof(entry));
@@ -207,7 +206,7 @@ int delete(FILE *db_file, char *name) {
   entry *p = load_entries(db_file);
   entry *base = p;
   entry *prev = NULL;
-  entry del = NULL ; / Node to be deleted */
+  entry del = NULL ; /* Node to be deleted */
   int deleted = 0;
   while (p!=NULL) {
     if (strcmp(p->name, name) == 0) {
